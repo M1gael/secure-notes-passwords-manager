@@ -17,7 +17,7 @@ public class PasswordManager extends Application {
         primaryStage.setTitle("Password Manager");
 
         //Elements
-        label nameLabel = new Label("Name: ");
+        Label nameLabel = new Label("Name: ");
         TextField nameField = new TextField();
 
         Label passwordLabel = new Label("Password:");
@@ -26,11 +26,12 @@ public class PasswordManager extends Application {
         Button saveButton = new Button("Save");
         
         //Layout
-        VBox layout = new VBox(10); //10 [pixel spacing]
+        VBox layout = new VBox(15); //10 [pixel spacing]
         layout.getChildren().addAll(nameLabel , nameField , passwordLabel , passwordField , saveButton);
         
         Scene scene = new Scene( layout , 400 , 400);
         primaryStage.setScene(scene);
         primaryStage.show();
+        
     }
 }
