@@ -1,7 +1,9 @@
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.layout.StackPane;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class PasswordManager extends Application {
@@ -14,11 +16,21 @@ public class PasswordManager extends Application {
     public void start(Stage primaryStage) {
         primaryStage.setTitle("Password Manager");
 
-        Button btn = new Button("Click me!");
-        StackPane root = new StackPane();
-        root.getChildren().add(btn);
-        primaryStage.setScene(new Scene(root, 300, 250));
+        //Elements
+        label nameLabel = new Label("Name: ");
+        TextField nameField = new TextField();
 
+        Label passwordLabel = new Label("Password:");
+        TextField passwordField = new TextField();
+
+        Button saveButton = new Button("Save");
+        
+        //Layout
+        VBox layout = new VBox(10); //10 [pixel spacing]
+        layout.getChildren().addAll(nameLabel , nameField , passwordLabel , passwordField , saveButton);
+        
+        Scene scene = new Scene( layout , 400 , 400);
+        primaryStage.setScene(scene);
         primaryStage.show();
     }
 }
