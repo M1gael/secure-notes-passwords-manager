@@ -9,6 +9,6 @@ public class Note{
     
     @Override
     public String toString(){
-        return "Title: " + title + ", Content: " + content;
+        return "Title: " + title + "\n" + "Content: " + content;
     }
 }
