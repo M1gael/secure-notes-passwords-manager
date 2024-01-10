@@ -1,6 +1,14 @@
 public class Note{
     private String title ;
-    private String Content;
+    private String content;
 
-    //Constructors , getters , setters ...
+    public Note(String title , String content){
+        this.title = title ; 
+        this.content = content;
+    }
+    
+    @Override
+    public String toString(){
+        return "Title: " + title + ", Content: " + content;
+    }
 }

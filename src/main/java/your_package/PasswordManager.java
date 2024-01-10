@@ -8,6 +8,11 @@ import javafx.stage.Stage;
 
 public class PasswordManager extends Application {
 
+    private TextField titleField;
+    private TextField contentArea;
+
+    // ... (other class-level variables)
+
     private void saveData(String title, String content) {
         Note newNote = new Note(title, content); // Create instance of note
 
@@ -15,16 +20,12 @@ public class PasswordManager extends Application {
         // Future: add to list or database
         System.out.println("Saved Note: " + newNote);
 
-        // Update UI - add the note to the ListView
-        noteList.getItems().add(newNote.toString());
 
         // Alert successful saving
         showAlert("Note saved successfully");
     }
 
-    public static void main(String[] args) {
-        launch(args);
-    }
+    // ... (other methods)
 
     @Override
     public void start(Stage primaryStage) {
@@ -32,12 +33,27 @@ public class PasswordManager extends Application {
 
         // Elements
         Label titleLabel = new Label("Title:");
-        TextField titleField = new TextField();
+        titleField = new TextField();  // Assign to class-level variable
 
         Label contentLabel = new Label("Content:");
-        TextField contentArea = new TextField(); // Use TextField for content input
+        contentArea = new TextField(); // Use TextField for content input
 
         Button saveNoteButton = new Button("Save Note");
+        saveNoteButton.setOnAction(e -> {
+            String currentTitle = titleField.getText();
+            String currentContent = contentArea.getText();
+
+            saveData(currentTitle, currentContent);
+        });
+
+        // Handle button click
+        saveNoteButton.setOnAction(e -> {
+            String title = titleField.getText(); // Capture title
+            String content = contentArea.getText(); // Capture content
+
+            // Call saveData method with captured values
+            saveData(title, content);
+        });
 
         // Layout
         VBox layout = new VBox(15); // 10 pixel spacing
@@ -46,5 +62,11 @@ public class PasswordManager extends Application {
         Scene scene = new Scene(layout, 400, 400);
         primaryStage.setScene(scene);
         primaryStage.show();
+    }
+
+    // ... (other code)
+
+    public static void main(String[] args) {
+        launch(args);
     }
 }
