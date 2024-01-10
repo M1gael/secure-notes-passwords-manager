@@ -13,7 +13,6 @@ public class PasswordManager extends Application {
     private TextField contentArea;
     private ListView<String> noteListView;
 
-    // ... (other class-level variables)
 
     private void saveData(String title, String content) {
         Note newNote = new Note(title, content); // Create instance of note
