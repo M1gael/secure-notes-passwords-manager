@@ -1,6 +1,7 @@
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.Files;
 
 public class Note{
     private String title ;
@@ -20,7 +21,13 @@ public class Note{
 
 
     private int generateNoteId(){
-        //find a means to extract the last note ID from the storage 
+        //attempt to retrieve last note ID
+        try {
+            String idString = Files.readString(Path.of("resources/data/LastAssignedId.txt"));
+            return Integer.parseInt(idString.trim());
+        } catch (IOException | NumberFormatException e) {
+            return 0; // Default to 0 if there's an issue reading the file
+        }
         int lastNoteId = 1;
         return lastNoteId++;
     }
