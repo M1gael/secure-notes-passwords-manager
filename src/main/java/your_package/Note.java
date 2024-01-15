@@ -22,12 +22,12 @@ public class Note{
 
     private int generateNoteId(){
         //attempt to retrieve last note ID
-        try {
+     /*    try {
             String idString = Files.readString(Path.of("resources/data/LastAssignedId.txt"));
             return Integer.parseInt(idString.trim());
         } catch (IOException | NumberFormatException e) {
             return 0; // Default to 0 if there's an issue reading the file
-        }
+        } */
         int lastNoteId = 1;
         return lastNoteId++;
     }
@@ -35,9 +35,8 @@ public class Note{
 
     private void saveNote(){
     
-
         try (BufferedWriter writer = new BufferedWriter(new FileWriter("resources/data/SavedNotes.txt", true))) {
-            writer.write(String.format("%d %s %s%n" , currentNoteId , title , content));
+            writer.write("<id" + currentNoteId + "id>" + "\n" + "<title" + title + "title>" + "\n" + "<content" + content + "content>" + "\n" +"END");             //String.format("%d %s %s%n" ,currentNoteId  , title , content)
         }
         catch (IOException e){
             e.printStackTrace();
