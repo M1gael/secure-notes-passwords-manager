@@ -1,17 +1,25 @@
-import javafx.application.Application;
+import javax.swing.*;
+
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import javafx.scene.control.ListView;
 
-public class PasswordManager extends Application {
+public class PasswordManager extends JFrame {
 
-    private TextField titleField;   //Assign private variables to the UI elements to be used in capturing and manipulation
-    private TextField contentArea;
-    private ListView<String> noteListView;
+    private JTextField titleField;   //Assign private variables to the UI elements to be used in capturing and manipulation
+    private JTextField contentArea;
+    private JListView<String> noteListView;
+
+
+    private void initSwingComponents(){ //initialise swing components in method
+        titleField = new JTextField();
+        contentArea = new JTextField();
+        noteListView = new JList<>();
+
+    }
 
 
     private void saveData(String title, String content) {
@@ -37,7 +45,7 @@ public class PasswordManager extends Application {
         contentArea = new TextField(); // Use TextField for content input
 
         //onclick button event to capture data
-        Button saveNoteButton = new Button("Save Note");
+        JButton saveNoteButton = new JButton("Save Note");
         saveNoteButton.setOnAction(e -> {
             String currentTitle = titleField.getText();
             String currentContent = contentArea.getText();
