@@ -40,4 +40,7 @@ END<id1id>
 END<id1id>
 <titletitle>
 <contentcontent>
+END<id1id>
+<titletitle>
+<contentcontent>
 END
