@@ -6,18 +6,35 @@ import java.awt.event.ActionListener;
 public class PasswordManager extends JFrame {
 
     private JTextField titleField;
+    String title = titleField.getText();
     private JTextField contentArea;
+    String content = contentArea.getText();
     private DefaultListModel<String> noteListModel;
     private JList<String> noteListView;
 
-    private void initSwingComponents() {
-        titleField = new JTextField();
-        contentArea = new JTextField();
-        noteListModel = new DefaultListModel<>();
-        noteListView = new JList<>(noteListModel);
 
-        titleField.setPreferredSize(new Dimension(200 , 30));
-        contentArea.setPreferredSize(new Dimension(200 , 30));
+    private void initSwingComponents() {
+        // Set up JFrame
+        JFrame mainFrame = new JFrame("Secure Notes");
+        mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        
+        // Create Layout Panel Using Gridlayout and Customise Elements
+        JPanel uiLayout = new JPanel(new GridLayout(4, 2 , 15, 15 ));
+             
+        //Add Elements
+        JLabel titleLabel = new JLabel("Title : ");
+        JTextField titleField = new JTextField();
+        
+        JLabel contentLabel = new JLabel();
+        JTextArea contentArea = new JTextArea();
+
+        JButton saveButton = new JButton("Save Note");
+        saveButton.addActionListener(new ActionEvent e {                       //current in Progress 
+
+        });
+
+        DefaultListModel<String> noteListModel = new DefaultListModel<>();
+        JList<String> noteList = new JList<>(noteListModel);
     }
 
     private void saveData(String title, String content) {
@@ -26,50 +43,15 @@ public class PasswordManager extends JFrame {
         noteListModel.addElement(newNote.toString());
     }
 
-    public PasswordManager() {
-        initSwingComponents();
-
-        // Elements
-        JLabel titleLabel = new JLabel("Title:");
-
-        JButton saveNoteButton = new JButton("Save Note");
-        saveNoteButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                String currentTitle = titleField.getText();
-                String currentContent = contentArea.getText();
-                saveData(currentTitle, currentContent);
-            }
-        });
-
-        // Layout using GridLayout
-        JPanel layout = new JPanel(new GridLayout(4, 3 , 15, 15 ));
-        layout.add(titleLabel);
-        titleField.setPreferredSize(new Dimension(150 , 25));
-        layout.add(titleField);
-        layout.add(new JLabel("Content:"));
-        contentArea.setPreferredSize(new Dimension(200,200));
-        layout.add(contentArea);
-        layout.add(saveNoteButton);
-        layout.add(new JLabel());  //Empty cell for spacing
-        
-        //Create new JPanel centered using the FlowLayout
-        JPanel centerPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
-        centerPanel.add(new JScrollPane(noteListView));
-        centerPanel.setPreferredSize(new Dimension(300 , 150));
-        layout.add(centerPanel);
-        // Set up JFrame
-        setTitle("Password Manager");
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setContentPane(layout);
-        setSize(800, 1000);
-        setLocationRelativeTo(null);
-    }
 
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> {
-            PasswordManager passwordManager = new PasswordManager();
-            passwordManager.setVisible(true);
-        });
+
+       
+        
+        //Create new JPanel centered using the FlowLayout
+        
+    
+        
+
     }
 }
