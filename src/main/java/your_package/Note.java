@@ -43,7 +43,6 @@ public class Note{
         }
     }
 
-
     public static void editNote(){
 
     }

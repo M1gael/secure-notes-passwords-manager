@@ -38,7 +38,7 @@ public class PasswordManager extends JFrame {
     }
 
     private void saveData(String title, String content) {
-        Note newNote = new Note(title, content);
+        Note newNote = new Note(title, content);                //Eventually to be replaced by load note method in note class
         System.out.println("Saved Note: " + newNote);
         noteListModel.addElement(newNote.toString());
     }
