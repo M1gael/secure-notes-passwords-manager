@@ -55,10 +55,7 @@ public class PasswordManager extends JFrame {
         layout.add(new JScrollPane(noteListView)); // Use JScrollPane for the list
         layout.add(new JLabel());
         
-        //Create new JPanel centered using the FlowLayout
-        JPanel centerPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
-        centerPanel.add(new JScrollPane(noteListView));
-        layout.add(centerPanel);
+
         // Set up JFrame
         setTitle("Password Manager");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
