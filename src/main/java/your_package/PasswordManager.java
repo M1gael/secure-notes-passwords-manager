@@ -13,7 +13,7 @@ public class PasswordManager extends JFrame {
     private JList<String> noteListView;
 
 
-    private void initSwingComponents() {
+    private static void initSwingComponents() {
         // Set up JFrame
         JFrame mainFrame = new JFrame("Secure Notes");
         mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -29,12 +29,18 @@ public class PasswordManager extends JFrame {
         JTextArea contentArea = new JTextArea();
 
         JButton saveButton = new JButton("Save Note");
-        saveButton.addActionListener(new ActionEvent e {                       //current in Progress 
+       /*  saveButton.addActionListener(new ActionEvent e {                       //current in Progress 
 
-        });
+        }); */
 
         DefaultListModel<String> noteListModel = new DefaultListModel<>();
         JList<String> noteList = new JList<>(noteListModel);
+    
+        //add elements
+        mainFrame.add(uiLayout);
+        mainFrame.add(titleField);
+
+
     }
 
     private void saveData(String title, String content) {
@@ -45,8 +51,8 @@ public class PasswordManager extends JFrame {
 
 
     public static void main(String[] args) {
+        initSwingComponents();
 
-       
         
         //Create new JPanel centered using the FlowLayout
         
