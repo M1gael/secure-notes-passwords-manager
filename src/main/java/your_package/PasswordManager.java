@@ -49,6 +49,43 @@ public class PasswordManager extends JFrame {
         noteListModel.addElement(newNote.toString());
     }
 
+    public PasswordManager() {
+        initSwingComponents();
+
+        // Elements
+        JLabel titleLabel = new JLabel("Title:");
+
+        JButton saveNoteButton = new JButton("Save Note");
+        saveNoteButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String currentTitle = titleField.getText();
+                String currentContent = contentArea.getText();
+                saveData(currentTitle, currentContent);
+            }
+        });
+
+        // Layout using GridLayout
+        JPanel layout = new JPanel(new GridLayout(4, 2 , 15, 15 ));
+        layout.add(titleLabel);
+        titleField.setPreferredSize(new Dimension(150 , 25));
+        layout.add(titleField);
+        layout.add(new JLabel("Content:"));
+        contentArea.setPreferredSize(new Dimension(200,200));
+        layout.add(contentArea);
+        layout.add(saveNoteButton);
+        layout.add(new JLabel());  //Empty cell for spacing
+        layout.add(new JScrollPane(noteListView)); // Use JScrollPane for the list
+        layout.add(new JLabel());
+        
+
+        // Set up JFrame
+        setTitle("Password Manager");
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setContentPane(layout);
+        setSize(400, 400);
+        setLocationRelativeTo(null);
+    }
 
     public static void main(String[] args) {
         initSwingComponents();
