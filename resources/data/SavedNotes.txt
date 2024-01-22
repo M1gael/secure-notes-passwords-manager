@@ -43,4 +43,7 @@ END<id1id>
 END<id1id>
 <titletitle>
 <contentcontent>
+END<id1id>
+<titleTest save note buttomtitle>
+<contentTesting to see if the save note button event handler works in the init components methodcontent>
 END

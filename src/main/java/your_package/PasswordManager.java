@@ -4,20 +4,38 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class PasswordManager extends JFrame {
-
+                                    //Creates a private instance of ex: JLabel named titleLabel
+    private JLabel titleLabel;      //Title
     private JTextField titleField;
+    private JLabel contentLabel;    //Content
+    private JButton saveNoteButton ;     //Save 
     private JTextField contentArea;
-    private DefaultListModel<String> noteListModel;
+    private DefaultListModel<String> noteListModel; //Display
     private JList<String> noteListView;
 
     private void initSwingComponents() {
+        titleLabel = new JLabel("Title: ");    //Said instance is assigned values
         titleField = new JTextField();
+
+        contentLabel = new JLabel("Content: ");
         contentArea = new JTextField();
+
+        saveNoteButton = new JButton("Save");
+        saveNoteButton.addActionListener(new ActionListener() { //Event handling with ActionListener
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String currentTitle = titleField.getText();
+                String currentContent = contentArea.getText();
+                saveData(currentTitle, currentContent);
+            }
+        });
+
         noteListModel = new DefaultListModel<>();
         noteListView = new JList<>(noteListModel);
 
-        titleField.setPreferredSize(new Dimension(200 , 30));
+        titleField.setPreferredSize(new Dimension(50 , 30));
         contentArea.setPreferredSize(new Dimension(200 , 30));
+        noteListView.setPreferredSize(new Dimension(400 , 400));
     }
 
     private void saveData(String title, String content) {
@@ -29,30 +47,23 @@ public class PasswordManager extends JFrame {
     public PasswordManager() {
         initSwingComponents();
 
-        // Elements
-        JLabel titleLabel = new JLabel("Title:");
-
-        JButton saveNoteButton = new JButton("Save Note");
-        saveNoteButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                String currentTitle = titleField.getText();
-                String currentContent = contentArea.getText();
-                saveData(currentTitle, currentContent);
-            }
-        });
-
-        // Layout using GridLayout
-        JPanel layout = new JPanel(new GridLayout(4, 2 , 15, 15 ));
-        layout.add(titleLabel);
+        // Layout using GridLayout                //4 Rows , 2 Columns , ??? ,???
+        JPanel layout = new JPanel(new GridLayout(4, 3 , 15, 15 ));
+        
+        layout.add(titleLabel); //Title
         titleField.setPreferredSize(new Dimension(150 , 25));
         layout.add(titleField);
-        layout.add(new JLabel("Content:"));
+
+        layout.add(new JLabel("Content:")); //Content
         contentArea.setPreferredSize(new Dimension(200,200));
         layout.add(contentArea);
+
         layout.add(saveNoteButton);
+        
         layout.add(new JLabel());  //Empty cell for spacing
+        
         layout.add(new JScrollPane(noteListView)); // Use JScrollPane for the list
+        
         layout.add(new JLabel());
         
 
