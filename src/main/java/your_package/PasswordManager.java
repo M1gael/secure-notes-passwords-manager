@@ -47,22 +47,26 @@ public class PasswordManager extends JFrame {
     public PasswordManager() {
         initSwingComponents();
 
-        // Layout using GridLayout                //4 Rows , 2 Columns , ??? ,???
-        JPanel layout = new JPanel(new GridLayout(4, 3 , 15, 15 ));
+        // Layout using GridLayout                              //4 Rows , 2 Columns , ??? ,???
+        JPanel layout = new JPanel(new FlowLayout());      //or    new GridLayout(4 , 2, 15, 15 )
         
-        layout.add(titleLabel); //Title
+        layout.add(titleLabel);                             //Title
         titleField.setPreferredSize(new Dimension(150 , 25));
         layout.add(titleField);
 
-        layout.add(new JLabel("Content:")); //Content
+        layout.add(new JLabel());
+        layout.add(new JLabel());
+        layout.add(new JLabel());
+
+        layout.add(new JLabel("Content:"));                 //Content
         contentArea.setPreferredSize(new Dimension(200,200));
         layout.add(contentArea);
 
         layout.add(saveNoteButton);
         
-        layout.add(new JLabel());  //Empty cell for spacing
+        layout.add(new JLabel());                           //Empty cell for spacing
         
-        layout.add(new JScrollPane(noteListView)); // Use JScrollPane for the list
+        layout.add(new JScrollPane(noteListView));           // Use JScrollPane for the list
         
         layout.add(new JLabel());
         
@@ -71,7 +75,7 @@ public class PasswordManager extends JFrame {
         setTitle("Password Manager");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setContentPane(layout);
-        setSize(400, 400);
+        setSize(800, 900);
         setLocationRelativeTo(null);
     }
 
