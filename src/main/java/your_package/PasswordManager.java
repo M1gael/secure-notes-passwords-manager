@@ -50,7 +50,7 @@ public class PasswordManager extends JFrame {
         //Set up JFrame
         setTitle("Password Manager");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(800, 700);
+        setSize(800, 800);
         setBackground(Color.red);                   //Does not work
         setLocationRelativeTo(null);
         
@@ -58,9 +58,9 @@ public class PasswordManager extends JFrame {
         setLayout(new FlowLayout());
 
         //Set Panel for UI Elements
-        JPanel holdElementsPnl = new JPanel(new FlowLayout());
-        holdElementsPnl.setSize(700 , 600);
-        holdElementsPnl.setBackground(Color.blue);
+        JPanel holdElementsPnl = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        holdElementsPnl.setSize(600 , 600);
+        holdElementsPnl.setBackground(Color.blue);      //last worked on
         add(holdElementsPnl);
         
         //Add UI Elements to pnl
