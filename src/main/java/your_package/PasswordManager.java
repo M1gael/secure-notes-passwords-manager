@@ -46,19 +46,56 @@ public class PasswordManager extends JFrame {
 
     public PasswordManager() {
         initSwingComponents();
+        
+        //Set up JFrame
+        setTitle("Password Manager");
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setSize(800, 700);
+        setBackground(Color.red);                   //Does not work
+        setLocationRelativeTo(null);
+        
+        //Set frame Layout 
+        setLayout(new FlowLayout());
+
+        //Set Panel for UI Elements
+        JPanel holdElementsPnl = new JPanel(new FlowLayout());
+        holdElementsPnl.setSize(700 , 600);
+        holdElementsPnl.setBackground(Color.blue);
+        add(holdElementsPnl);
+        
+        //Add UI Elements to pnl
+        holdElementsPnl.add(titleField);
+        holdElementsPnl.add(contentArea);
+        holdElementsPnl.add(saveNoteButton);
+        holdElementsPnl.add(noteListView);
+
+        //Add Panel to Mainframe
+        add(holdElementsPnl);
+    }
+
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(() -> {
+            PasswordManager passwordManager = new PasswordManager();
+            passwordManager.setVisible(true);
+        });
+    }
+}
+/*     
+ // Set up JFrame                    //Works because of "extends JFrame"??
+        setTitle("Password Manager");
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        
+        setSize(800, 900);
+        setLocationRelativeTo(null);
 
         // Layout using GridLayout                              //4 Rows , 2 Columns , ??? ,???
         JPanel layout = new JPanel(new FlowLayout());      //or    new GridLayout(4 , 2, 15, 15 )
-        
-        layout.add(titleLabel);                             //Title
+        setContentPane(layout);
+        //Title
         titleField.setPreferredSize(new Dimension(150 , 25));
         layout.add(titleField);
 
-        layout.add(new JLabel());
-        layout.add(new JLabel());
-        layout.add(new JLabel());
-
-        layout.add(new JLabel("Content:"));                 //Content
+        //Content
         contentArea.setPreferredSize(new Dimension(200,200));
         layout.add(contentArea);
 
@@ -71,18 +108,4 @@ public class PasswordManager extends JFrame {
         layout.add(new JLabel());
         
 
-        // Set up JFrame
-        setTitle("Password Manager");
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setContentPane(layout);
-        setSize(800, 900);
-        setLocationRelativeTo(null);
-    }
-
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> {
-            PasswordManager passwordManager = new PasswordManager();
-            passwordManager.setVisible(true);
-        });
-    }
-}
+ */
