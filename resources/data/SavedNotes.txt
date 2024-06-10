@@ -39,9 +39,6 @@ END<id1id>
 <titletitle>
 <contentcontent>
 END<id1id>
-<titletitle>
-<contentcontent>
-END<id1id>
-<titleMigie title>
-<contentEk love koffiecontent>
+<titleTest save note buttomtitle>
+<contentTesting to see if the save note button event handler works in the init components methodcontent>
 END
