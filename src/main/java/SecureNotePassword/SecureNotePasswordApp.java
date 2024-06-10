@@ -1,4 +1,4 @@
-public package src.main.java.SecureNotePassword;
+package src.main.java.SecureNotePassword;
 
 public class SecureNotePasswordApp {
     public static void main(String[] args) {

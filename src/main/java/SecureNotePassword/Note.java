@@ -1,3 +1,4 @@
+/* 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -27,12 +28,12 @@ public class Note{
             return Integer.parseInt(idString.trim());
         } catch (IOException | NumberFormatException e) {
             return 0; // Default to 0 if there's an issue reading the file
-        } */
+        } */ /* 
         int lastNoteId = 1;
         return lastNoteId++;
     }
 
-
+   
     private void saveNote(){
     
         try (BufferedWriter writer = new BufferedWriter(new FileWriter("resources/data/SavedNotes.txt", true))) {
@@ -55,4 +56,4 @@ public class Note{
     public String toString(){
         return "Title: " + title + "\n" + "Content: " + content;
     }
-}
+} */
