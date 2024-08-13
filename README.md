@@ -1,2 +1,4 @@
-# secure-notes-passwords-manager
-A secure notes and password manager that uses encryption to securely store data . Written in Java.
+# Secure Notes
+A secure notes app that uses encryption to securely store data . Written in Java.
+
+# Work In Progress
